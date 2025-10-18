@@ -209,7 +209,8 @@ export default class App extends Component {
         <Header
         />
         <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center caption-japanese">
-          <h1 className="display-4">JAPANESE</h1>
+          <h1 className="display-4">Small Cards, Big Progress</h1>
+          <br></br>
           <p className="lead"></p>
           <div className="d-flex flex-wrap justify-content-center gap-2">
             <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={this.openModal}>
@@ -235,7 +236,6 @@ export default class App extends Component {
               style={{ display: "none" }}
             />
           </div>
-          <br></br>
         </div>
 
         <br></br>

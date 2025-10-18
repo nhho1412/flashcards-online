@@ -1,0 +1,878 @@
+[
+    {
+        "chucai": "ア",
+        "hanviet": "a",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "イ",
+        "hanviet": "i",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ウ",
+        "hanviet": "u",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "エ",
+        "hanviet": "e",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "オ",
+        "hanviet": "o",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "カ",
+        "hanviet": "ka",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "キ",
+        "hanviet": "ki",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ク",
+        "hanviet": "ku",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ケ",
+        "hanviet": "ke",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "コ",
+        "hanviet": "ko",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "キャ",
+        "hanviet": "kya",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "キュ",
+        "hanviet": "kyu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "キョ",
+        "hanviet": "kyo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "サ",
+        "hanviet": "sa",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "シ",
+        "hanviet": "shi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ス",
+        "hanviet": "su",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "セ",
+        "hanviet": "se",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ソ",
+        "hanviet": "so",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "シャ",
+        "hanviet": "sha",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "シュ",
+        "hanviet": "shu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ショ",
+        "hanviet": "sho",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "タ",
+        "hanviet": "ta",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "チ",
+        "hanviet": "chi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ツ",
+        "hanviet": "tsu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "テ",
+        "hanviet": "te",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ト",
+        "hanviet": "to",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "チャ",
+        "hanviet": "cha",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "チュ",
+        "hanviet": "chu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "チョ",
+        "hanviet": "cho",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ナ",
+        "hanviet": "na",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ニ",
+        "hanviet": "ni",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヌ",
+        "hanviet": "nu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ネ",
+        "hanviet": "ne",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ノ",
+        "hanviet": "no",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ニャ",
+        "hanviet": "nya",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ニュ",
+        "hanviet": "nyu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ニョ",
+        "hanviet": "nyo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ハ",
+        "hanviet": "ha",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヒ",
+        "hanviet": "hi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "フ",
+        "hanviet": "fu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヘ",
+        "hanviet": "he",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ホ",
+        "hanviet": "ho",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヒャ",
+        "hanviet": "hya",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヒュ",
+        "hanviet": "hyu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヒョ",
+        "hanviet": "hyo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "マ",
+        "hanviet": "ma",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ミ",
+        "hanviet": "mi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ム",
+        "hanviet": "mu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "メ",
+        "hanviet": "me",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "モ",
+        "hanviet": "mo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ミャ",
+        "hanviet": "mya",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ミュ",
+        "hanviet": "myu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ミョ",
+        "hanviet": "myo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヤ",
+        "hanviet": "ya",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ユ",
+        "hanviet": "yu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヨ",
+        "hanviet": "yo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ラ",
+        "hanviet": "ra",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "リ",
+        "hanviet": "ri",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ル",
+        "hanviet": "ru",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "レ",
+        "hanviet": "re",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ロ",
+        "hanviet": "ro",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "リャ",
+        "hanviet": "rya",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "リュ",
+        "hanviet": "ryu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "リョ",
+        "hanviet": "ryo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ワ",
+        "hanviet": "wa",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヲ",
+        "hanviet": "wo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ン",
+        "hanviet": "n",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ガ",
+        "hanviet": "ga",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ギ",
+        "hanviet": "gi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "グ",
+        "hanviet": "gu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ゲ",
+        "hanviet": "ge",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ゴ",
+        "hanviet": "go",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ギャ",
+        "hanviet": "gya",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ギュ",
+        "hanviet": "gyu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ギョ",
+        "hanviet": "gyo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ザ",
+        "hanviet": "za",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ジ",
+        "hanviet": "ji",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ズ",
+        "hanviet": "zu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ゼ",
+        "hanviet": "ze",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ゾ",
+        "hanviet": "zo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ジャ",
+        "hanviet": "ja",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ジュ",
+        "hanviet": "ju",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ジョ",
+        "hanviet": "jo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ダ",
+        "hanviet": "da",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヂ",
+        "hanviet": "ji",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヅ",
+        "hanviet": "zu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "デ",
+        "hanviet": "de",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ド",
+        "hanviet": "do",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヂャ",
+        "hanviet": " ja",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヂュ",
+        "hanviet": " ju",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヂョ ",
+        "hanviet": "jo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "バ",
+        "hanviet": "ba",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ビ",
+        "hanviet": "bi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ブ",
+        "hanviet": "bu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ベ",
+        "hanviet": "be",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ボ",
+        "hanviet": "bo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ビャ",
+        "hanviet": "bya",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ビュ",
+        "hanviet": "byu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ビョ",
+        "hanviet": "byo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "パ",
+        "hanviet": "pa",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ピ",
+        "hanviet": "pi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "プ",
+        "hanviet": "pu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ペ",
+        "hanviet": "pe",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ポ",
+        "hanviet": "po",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ピャ",
+        "hanviet": "pya",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ピュ",
+        "hanviet": "pyu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ピョ",
+        "hanviet": "pyo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヴァ",
+        "hanviet": "va",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヴィ",
+        "hanviet": "vi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヴ",
+        "hanviet": "vu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヴェ",
+        "hanviet": "ve",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヴォ",
+        "hanviet": "vo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヴャ",
+        "hanviet": "vya",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヴュ",
+        "hanviet": "vyu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ヴョ",
+        "hanviet": "vyo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "シェ",
+        "hanviet": "she",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ジェ",
+        "hanviet": "je",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "チェ",
+        "hanviet": "che",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "スィ",
+        "hanviet": "swi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ズィ",
+        "hanviet": "zwi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ティ",
+        "hanviet": "ti",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "トゥ",
+        "hanviet": "tu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "テュ",
+        "hanviet": "tyu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ディ",
+        "hanviet": "di",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ドゥ",
+        "hanviet": "du",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "デュ",
+        "hanviet": "dyu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ツァ",
+        "hanviet": "tsa",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ツィ",
+        "hanviet": "tsi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ツェ",
+        "hanviet": "tse",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ツォ",
+        "hanviet": "tso",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ファ",
+        "hanviet": "fa",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "フィ",
+        "hanviet": "fi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "フェ",
+        "hanviet": "fe",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "フォ",
+        "hanviet": "fo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "フュ",
+        "hanviet": "fyu",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ウィ",
+        "hanviet": "wi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ウェ",
+        "hanviet": "we",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "ウォ",
+        "hanviet": "wo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "(クヮ) クァ",
+        "hanviet": "kwa",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "クィ",
+        "hanviet": "kwi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "クェ",
+        "hanviet": "kwe",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "クォ",
+        "hanviet": "kwo",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "(グヮ) グァ",
+        "hanviet": "gwa",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "グィ",
+        "hanviet": "gwi",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "グェ",
+        "hanviet": "gwe",
+        "nghia": "",
+        "doc": ""
+        },
+        {
+        "chucai": "グォ",
+        "hanviet": "gwo",
+        "nghia": "",
+        "doc": ""
+        }           
+]

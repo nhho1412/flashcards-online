@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/nihongo-flashcards/static/css/main.5547e3da.css",
+    "main.js": "/nihongo-flashcards/static/js/main.9fd1a4d3.js",
+    "index.html": "/nihongo-flashcards/index.html",
+    "main.5547e3da.css.map": "/nihongo-flashcards/static/css/main.5547e3da.css.map",
+    "main.9fd1a4d3.js.map": "/nihongo-flashcards/static/js/main.9fd1a4d3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5547e3da.css",
+    "static/js/main.9fd1a4d3.js"
+  ]
+}

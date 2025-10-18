@@ -1,8 +1,8 @@
 {
-  "name": "project_learn",
+  "name": "nihongo-flashcards",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://nhho1412.github.io/project_learn/",
+  "homepage": "https://nhho1412.github.io/nihongo-flashcards/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",

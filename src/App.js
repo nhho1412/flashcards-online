@@ -2,221 +2,287 @@ import React, { Component } from "react";
 import "./assets/pricing.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import randomVoca from "./randomVoca";
-import ShowInfo from "./ShowInfo";
+import './App.css';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      vocaRandom: randomVoca("Kanji"),
-      hanviet: null,
-      nghia: "Press the button 'Result' or answer correctly",
-      doc: null,
-      result: "",
-      resultBl: "hienthi",
-      ngonNgu: "Kanji",
-      ngonNguColor: "1",
+      flashcards: [
+        { question: "Click the Edit Data button to get started", answer: "Nhấn button Edit data để bắt đầu" }
+      ],
+      currentIndex: 0,
+      showAnswer: false
     };
-    this.handleClick = this.handleClick.bind(this);
-    this.reloadClick = this.reloadClick.bind(this);
-    this.ktkqClick = this.ktkqClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.selectNnClick = this.selectNnClick.bind(this);
-  }
 
-  handleClick() {
-    var hanvietA;
-    var nghiaA;
-    var docA;
-    this.state.vocaRandom.map(
-      (vocaRandom) => (
-        // eslint-disable-next-line
-        (hanvietA = vocaRandom.hanviet),
-        (nghiaA = vocaRandom.nghia),
-        (docA = vocaRandom.doc)
-      )
-    );
-    this.setState((state) => ({
-      hanviet: hanvietA,
-      nghia: nghiaA,
-      doc: docA,
-      resultBl: "hienthi",
+    this.questionRef = React.createRef();
+    this.answerRef = React.createRef();
+  }
+  addFlashcard = (question, answer) => {
+    this.setState(prevState => ({
+      flashcards: [
+        ...prevState.flashcards,
+        { question, answer }
+      ]
     }));
-  }
+  };
 
-  handleChange(event) {
-    var resultA = event.target.value;
-    this.setState((state) => ({
-      result: resultA,
-    }));
-  }
-
-  reloadClick() {
-    var ngonNgu = this.state.ngonNgu;
-    this.setState((state) => ({
-      vocaRandom: randomVoca(ngonNgu),
-      hanviet: null,
-      doc: null,
-      nghia: "Press the button 'Result' or answer correctly",
-      result: "",
-      resultBl: "hienthi",
-    }));
-  }
-
-  ktkqClick() {
-    var hanvietA;
-    var nghiaA;
-    var docA;
-
-    this.state.vocaRandom.map(
-      (vocaRandom) => (
-        // eslint-disable-next-line
-        (hanvietA = vocaRandom.hanviet),
-        (nghiaA = vocaRandom.nghia),
-        (docA = vocaRandom.doc)
-      )
-    );
-    // eslint-disable-next-line
-    const doc_array = docA.split(", ");
-    var ck = true;
-    // eslint-disable-next-line
-    doc_array.filter((doc) => {
-      var docB = doc;
-      if (
-        (docB !== "" &&
-          doc.toLowerCase() === this.state.result.toLowerCase()) ||
-        hanvietA.toLowerCase().trim() === this.state.result.toLowerCase().trim()
-      ) {
-        this.setState((state) => ({
-          hanviet: hanvietA,
-          nghia: nghiaA,
-          doc: docA,
-          resultBl: "dung",
-        }));
-        ck = false;
-      }
+  shuffleFlashcards = () => {
+    const shuffled = [...this.state.flashcards];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    this.setState({ flashcards: shuffled });
+  };
+  
+  handleNext = () => {
+    // Chuyển sang thẻ kế tiếp
+    this.setState(prevState => {
+      const nextIndex =
+        prevState.currentIndex + 1 < prevState.flashcards.length
+          ? prevState.currentIndex + 1
+          : 0; // quay lại đầu nếu hết mảng
+      return {
+        currentIndex: nextIndex,
+        showAnswer: false // reset lại để chỉ hiện câu hỏi
+      };
     });
+  };
 
-    if (ck) {
-      this.setState((state) => ({
-        hanviet: "",
-        nghia: "",
-        doc: "",
-        resultBl: "sai",
-      }));
-    }
-  }
+  handlePrevios = () => {
+    // Chuyển sang thẻ trước đó
+    this.setState(prevState => {
+      const previosIndex =
+        prevState.currentIndex - 1 >= 0
+          ? prevState.currentIndex - 1
+          : prevState.flashcards.length - 1;
+      return {
+        currentIndex: previosIndex,
+        showAnswer: false // reset lại để chỉ hiện câu hỏi
+      };
+    });
+  };
 
-  selectNnClick(event) {
-    var selectNgonngu = event.target.id;
-    var ngonNgu = "";
-    var ngonNguColor = "1";
-    if (selectNgonngu === "cateKanji") {
-      ngonNgu = "Kanji";
-      ngonNguColor = "1";
-      this.setState((state) => ({
-        vocaRandom: randomVoca(ngonNgu),
-      }));
-    } else if (selectNgonngu === "cateHiragana") {
-      ngonNgu = "Hiragana";
-      ngonNguColor = "2";
-      this.setState((state) => ({
-        vocaRandom: randomVoca(ngonNgu),
-      }));
-    } else if (selectNgonngu === "cateKatakana") {
-      ngonNgu = "Katakana";
-      ngonNguColor = "3";
-      this.setState((state) => ({
-        vocaRandom: randomVoca(ngonNgu),
-      }));
-    }
-
-    this.setState((state) => ({
-      ngonNgu: ngonNgu,
-      ngonNguColor: ngonNguColor,
-      hanviet: null,
-      doc: null,
-      nghia: "Press the button 'Result' or answer correctly",
-      result: "",
-      resultBl: "hienthi",
+  handleClick = () => {
+    this.setState(prevState => ({
+      showAnswer: !prevState.showAnswer
     }));
-  }
+  };
+
+  openModal = () => {
+    const { flashcards } = this.state;
+    const questionText = flashcards.map(fc => fc.question).join("\n");
+    const answerText = flashcards.map(fc => fc.answer).join("\n");
+
+    // Gán vào textarea thông qua ref
+    this.questionRef.current.value = questionText;
+    this.answerRef.current.value = answerText;
+  };
+
+  saveChanges = () => {
+    const questions = this.questionRef.current.value.split("\n");
+    const answers = this.answerRef.current.value.split("\n");
+
+    const flashcards = questions.map((q, i) => ({
+      question: q.trim(),
+      answer: answers[i] ? answers[i].trim() : "",
+    }));
+
+    this.setState({ flashcards });
+  };
+
+  handleExportCSV = () => {
+    const { flashcards } = this.state;
+
+    if (!flashcards || flashcards.length === 0) {
+      alert("Không có dữ liệu để xuất!");
+      return;
+    }
+
+    // Dòng tiêu đề (header)
+    const header = ["Question", "Answer"];
+    const rows = flashcards.map(card => [card.question, card.answer]);
+
+    // Tạo nội dung CSV — escape ký tự đặc biệt và nối thành chuỗi
+    const csvContent = [header, ...rows]
+      .map(e => e.map(value => `"${(value || '').replace(/"/g, '""')}"`).join(","))
+      .join("\n");
+
+    // Thêm BOM (Byte Order Mark) để Excel hiểu đúng UTF-8
+    const BOM = "\uFEFF";
+    const blob = new Blob([BOM + csvContent], { type: "text/csv;charset=utf-8;" });
+
+    // Tạo URL tải xuống
+    const url = URL.createObjectURL(blob);
+
+    // Tạo link ẩn để tải file
+    const link = document.createElement("a");
+    link.href = url;
+    link.setAttribute("download", "flashcards_utf8.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  handleImportCSV = (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    // Kiểm tra định dạng file
+    if (!file.name.endsWith(".csv")) {
+      alert("Vui lòng chọn file CSV hợp lệ!");
+      return;
+    }
+
+    const reader = new FileReader();
+
+    // Đọc file với encoding UTF-8
+    reader.readAsText(file, "UTF-8");
+
+    reader.onload = (e) => {
+      const text = e.target.result;
+
+      // Cắt bỏ BOM (nếu có)
+      const csvText = text.replace(/^\uFEFF/, "");
+
+      // Tách dòng
+      const lines = csvText.trim().split(/\r?\n/);
+
+      // Dòng đầu tiên là header
+      const [, ...dataLines] = lines;
+
+      // Parse từng dòng thành object { question, answer }
+      const flashcards = dataLines.map(line => {
+        // Tách theo dấu phẩy, xử lý trường hợp có dấu phẩy trong chuỗi
+        const [questionRaw, answerRaw] = line.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
+        const question = questionRaw.replace(/^"|"$/g, '').replace(/""/g, '"');
+        const answer = answerRaw?.replace(/^"|"$/g, '').replace(/""/g, '"');
+        return { question, answer };
+      });
+
+      // Lưu vào state
+      this.setState({ flashcards });
+
+      alert("Đã import thành công!");
+    };
+
+    reader.onerror = () => {
+      alert("Đọc file thất bại. Vui lòng thử lại!");
+    };
+  };
+
+  handleReverseFlashcards = () => {
+    const { flashcards } = this.state;
+
+    if (!flashcards || flashcards.length === 0) {
+      alert("Không có dữ liệu để đảo ngược!");
+      return;
+    }
+
+    // Tạo mảng mới với question ↔ answer
+    const reversed = flashcards.map(card => ({
+      question: card.answer || "",
+      answer: card.question || "",
+    }));
+
+    this.setState({ flashcards: reversed });
+  };
 
   render() {
-    var Chucai;
-    this.state.vocaRandom.map((vocaRandom) => (Chucai = vocaRandom.chucai));
+    const { flashcards, currentIndex, showAnswer } = this.state;
+    const currentCard = flashcards[currentIndex];
+
     return (
       <div>
         <Header
-          ngonNguColor={this.state.ngonNguColor}
-          nnChange={this.selectNnClick}
         />
         <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center caption-japanese">
           <h1 className="display-4">JAPANESE</h1>
-          <h3>{this.state.ngonNgu}</h3>
+          <h3>TODO</h3>
           <p className="lead"></p>
+          <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={this.openModal}>
+            Edit data
+          </button>
+          <button type="button" className="btn btn-primary ms-2" onClick={this.shuffleFlashcards}>
+            Shuffle
+          </button>
+          <button type="button" className="btn btn-primary ms-2" onClick={this.handleReverseFlashcards}>
+            Reverse
+          </button>
+          <button type="button" className="btn btn-primary ms-2" onClick={this.handleExportCSV}>
+            Export data
+          </button>
+          <button type="button" className="btn btn-primary ms-2" onClick={() => this.fileInput.click()}>
+            Import data
+          </button>
+          <input
+            type="file"
+            accept=".csv"
+            ref={(input) => (this.fileInput = input)}
+            onChange={this.handleImportCSV}
+            style={{ display: "none" }}
+          />
         </div>
+
+        <br></br>
 
         <div className="container">
           <div className="card-deck mb-3 text-center">
-            <div className="card mb-4 shadow-sm">
-              <div className="card-header">
-                <h4 className="my-0 font-weight-normal">Alphabet</h4>
-              </div>
-              <div className="card-body">
-                <h1 className="card-title pricing-card-title vocaText">
-                  {Chucai}
-                </h1>
-                <div className="input-group mb-3">
-                  <input
-                    type="text"
-                    className="form-control inputKq"
-                    placeholder="..."
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                    value={this.state.result}
-                    onChange={this.handleChange}
-                  />
+            <div className="card mb-8 shadow-sm">
+              <div className="card-header border-bottom-0 bg-fff">
+                <div className="card-header d-flex justify-content-between bg-fff">
+                  <button type="button" className="btn btn-outline-primary w-40" onClick={this.handlePrevios}>
+                    Previous
+                  </button>
+                  <button type="button" className="btn btn-outline-primary w-40" onClick={this.handleNext}>
+                    Next
+                  </button>
                 </div>
-                <button
-                  type="button"
-                  className="btn btn-lg btn-block btn-primary btnKtkq"
-                  onClick={this.ktkqClick}
-                >
-                  Check
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-lg btn-block btn-warning btnBt"
-                  onClick={this.handleClick}
-                >
-                  Result
-                </button>
-                <button
-                  type="button"
-                  className="btn btn-lg btn-block btn-info btnBt"
-                  onClick={this.reloadClick}
-                >
-                  Next
-                </button>
               </div>
-            </div>
-            <div className="card mb-4 shadow-sm">
-              <div className="card-header">
-                <h4 className="my-0 font-weight-normal">Information</h4>
-              </div>
-              <div className="card-body">
-                <ShowInfo
-                  hanviet={this.state.hanviet}
-                  nghia={this.state.nghia}
-                  doc={this.state.doc}
-                  resultBl={this.state.resultBl}
-                />
+              <div className="card-body d-flex justify-content-center align-items-center minHeight-400" 
+                style={{ cursor: 'pointer', userSelect: 'none', backgroundColor: this.state.showAnswer ? ' #e7f1f5' : '#fff',}}
+                onClick={this.handleClick}>
+                <h1 className="card-title pricing-card-title vocaText">
+                  {showAnswer ? currentCard.answer : currentCard.question}
+                </h1>
               </div>
             </div>
           </div>
-          <Footer />
+        </div>
+
+        <Footer />
+        
+        <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog modal-lg modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body">
+                <div className="container-fluid">
+                  <div className="row">
+                    <div className="col-6 col-md-6">
+                      <label htmlFor="recipient-name" className="col-form-label">Question:</label>
+                      <textarea className="form-control" aria-label="With textarea" 
+                        ref={this.questionRef}
+                      ></textarea>
+                    </div>
+                    <div className="col-6 col-md-6">
+                      <label htmlFor="recipient-name" className="col-form-label">Answer:</label>
+                      <textarea className="form-control" aria-label="With textarea"
+                        ref={this.answerRef}></textarea>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" className="btn btn-primary" onClick={this.saveChanges} data-bs-dismiss="modal">Save changes & close</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );

@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+.bg-fff {
+  background-color: #fff !important;
+}
+
+.w-40 {
+  width: 40%;
+}
+
+/* Áp dụng cho textarea trong modal-body */
+.modal-body textarea {
+  width: 100%;
+  min-height: 500px; /* để không quá nhỏ */
+}
+
+/* Màn hình nhỏ (điện thoại) */
+@media (max-width: 768px) {
+  .modal-body textarea {
+    min-height: 400px; /* để không quá nhỏ */
+  }
+}
+
+.minHeight-300 {min-height: 300px;}
+.minHeight-400 {min-height: 400px;}
+.minHeight-500 {min-height: 500px;}
+.minHeight-600 {min-height: 600px;}
+.minHeight-700 {min-height: 700px;}

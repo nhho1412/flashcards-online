@@ -78,6 +78,17 @@ export default class App extends Component {
     // Gán vào textarea thông qua ref
     this.questionRef.current.value = questionText;
     this.answerRef.current.value = answerText;
+
+    const questions = this.state.flashcards.map(fc => fc.question).join('\n');
+    const answers = this.state.flashcards.map(fc => fc.answer).join('\n');
+    const questionCount = questions.split('\n').filter(line => line.trim() !== '').length;
+    const answerCount = answers.split('\n').filter(line => line.trim() !== '').length;
+
+    // Cập nhật state để hiển thị
+    this.setState({
+      questionCount,
+      answerCount
+    });
   };
 
   saveChanges = () => {
@@ -199,30 +210,32 @@ export default class App extends Component {
         />
         <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center caption-japanese">
           <h1 className="display-4">JAPANESE</h1>
-          <h3>TODO</h3>
           <p className="lead"></p>
-          <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={this.openModal}>
-            Edit data
-          </button>
-          <button type="button" className="btn btn-primary ms-2" onClick={this.shuffleFlashcards}>
-            Shuffle
-          </button>
-          <button type="button" className="btn btn-primary ms-2" onClick={this.handleReverseFlashcards}>
-            Reverse
-          </button>
-          <button type="button" className="btn btn-primary ms-2" onClick={this.handleExportCSV}>
-            Export data
-          </button>
-          <button type="button" className="btn btn-primary ms-2" onClick={() => this.fileInput.click()}>
-            Import data
-          </button>
-          <input
-            type="file"
-            accept=".csv"
-            ref={(input) => (this.fileInput = input)}
-            onChange={this.handleImportCSV}
-            style={{ display: "none" }}
-          />
+          <div className="d-flex flex-wrap justify-content-center gap-2">
+            <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={this.openModal}>
+              Edit data
+            </button>
+            <button type="button" className="btn btn-primary ms-2" onClick={this.shuffleFlashcards}>
+              Shuffle
+            </button>
+            <button type="button" className="btn btn-primary ms-2" onClick={this.handleReverseFlashcards}>
+              Reverse
+            </button>
+            <button type="button" className="btn btn-primary ms-2" onClick={this.handleExportCSV}>
+              Export data
+            </button>
+            <button type="button" className="btn btn-primary ms-2" onClick={() => this.fileInput.click()}>
+              Import data
+            </button>
+            <input
+              type="file"
+              accept=".csv"
+              ref={(input) => (this.fileInput = input)}
+              onChange={this.handleImportCSV}
+              style={{ display: "none" }}
+            />
+          </div>
+          <br></br>
         </div>
 
         <br></br>
@@ -264,15 +277,31 @@ export default class App extends Component {
                 <div className="container-fluid">
                   <div className="row">
                     <div className="col-6 col-md-6">
-                      <label htmlFor="recipient-name" className="col-form-label">Question:</label>
+                      <label htmlFor="recipient-name" className="col-form-label">Question:{" "}
+                        <span className="text-primary">
+                          ({this.state.questionCount || 0})
+                        </span>
+                      </label>
                       <textarea className="form-control" aria-label="With textarea" 
                         ref={this.questionRef}
+                        onInput={(e) => {
+                          const count = e.target.value.split("\n").filter(line => line.trim() !== "").length;
+                          this.setState({ questionCount: count });
+                        }}
                       ></textarea>
                     </div>
                     <div className="col-6 col-md-6">
-                      <label htmlFor="recipient-name" className="col-form-label">Answer:</label>
+                      <label htmlFor="recipient-name" className="col-form-label">Answer:{" "}
+                        <span className="text-success">
+                          ({this.state.answerCount || 0})
+                        </span>
+                      </label>
                       <textarea className="form-control" aria-label="With textarea"
-                        ref={this.answerRef}></textarea>
+                        ref={this.answerRef}
+                        onInput={(e) => {
+                          const count = e.target.value.split("\n").filter(line => line.trim() !== "").length;
+                          this.setState({ answerCount: count });
+                        }}></textarea>
                     </div>
                   </div>
                 </div>

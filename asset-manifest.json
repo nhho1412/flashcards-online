@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/nihongo-flashcards/static/css/main.5547e3da.css",
-    "main.js": "/nihongo-flashcards/static/js/main.5abbef2a.js",
-    "index.html": "/nihongo-flashcards/index.html",
-    "main.5547e3da.css.map": "/nihongo-flashcards/static/css/main.5547e3da.css.map",
-    "main.5abbef2a.js.map": "/nihongo-flashcards/static/js/main.5abbef2a.js.map"
+    "main.css": "/flashcards-online/static/css/main.5547e3da.css",
+    "main.js": "/flashcards-online/static/js/main.5abbef2a.js",
+    "index.html": "/flashcards-online/index.html",
+    "main.5547e3da.css.map": "/flashcards-online/static/css/main.5547e3da.css.map",
+    "main.5abbef2a.js.map": "/flashcards-online/static/js/main.5abbef2a.js.map"
   },
   "entrypoints": [
     "static/css/main.5547e3da.css",

@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.css": "/flashcards-online/static/css/main.5547e3da.css",
-    "main.js": "/flashcards-online/static/js/main.0f5b1d87.js",
+    "main.css": "/flashcards-online/static/css/main.e29a5479.css",
+    "main.js": "/flashcards-online/static/js/main.b5097810.js",
+    "static/media/fa-solid-900.woff2": "/flashcards-online/static/media/fa-solid-900.8ae0d37556ff1e685de2.woff2",
+    "static/media/fa-brands-400.woff2": "/flashcards-online/static/media/fa-brands-400.1c5c7716b05754cb4eab.woff2",
+    "static/media/fa-regular-400.woff2": "/flashcards-online/static/media/fa-regular-400.6f05ca9ab7b5345dbc07.woff2",
+    "static/media/fa-v4compatibility.woff2": "/flashcards-online/static/media/fa-v4compatibility.e4340c52a50e727c6afa.woff2",
     "index.html": "/flashcards-online/index.html",
-    "main.5547e3da.css.map": "/flashcards-online/static/css/main.5547e3da.css.map",
-    "main.0f5b1d87.js.map": "/flashcards-online/static/js/main.0f5b1d87.js.map"
+    "main.e29a5479.css.map": "/flashcards-online/static/css/main.e29a5479.css.map",
+    "main.b5097810.js.map": "/flashcards-online/static/js/main.b5097810.js.map"
   },
   "entrypoints": [
-    "static/css/main.5547e3da.css",
-    "static/js/main.0f5b1d87.js"
+    "static/css/main.e29a5479.css",
+    "static/js/main.b5097810.js"
   ]
 }

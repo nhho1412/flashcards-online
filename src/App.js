@@ -214,19 +214,19 @@ export default class App extends Component {
           <p className="lead"></p>
           <div className="d-flex flex-wrap justify-content-center gap-2">
             <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={this.openModal}>
-              Edit data
+              <i class="fa-solid fa-pen-to-square"></i> Edit data
             </button>
             <button type="button" className="btn btn-primary ms-2" onClick={this.shuffleFlashcards}>
-              Shuffle
+              <i class="fa-solid fa-shuffle"></i> Shuffle
             </button>
             <button type="button" className="btn btn-primary ms-2" onClick={this.handleReverseFlashcards}>
-              Reverse
+              <i class="fa-solid fa-right-left"></i> Reverse
             </button>
             <button type="button" className="btn btn-primary ms-2" onClick={this.handleExportCSV}>
-              Export csv
+              <i class="fa-solid fa-file-export"></i> Export csv
             </button>
             <button type="button" className="btn btn-primary ms-2" onClick={() => this.fileInput.click()}>
-              Import csv
+              <i class="fa-solid fa-file-import"></i> Import csv
             </button>
             <input
               type="file"
@@ -236,6 +236,7 @@ export default class App extends Component {
               style={{ display: "none" }}
             />
           </div>
+          <br></br>
         </div>
 
         <br></br>
@@ -246,10 +247,10 @@ export default class App extends Component {
               <div className="card-header border-bottom-0 bg-fff">
                 <div className="card-header d-flex justify-content-between bg-fff">
                   <button type="button" className="btn btn-outline-primary w-40" onClick={this.handlePrevios}>
-                    Previous
+                    <i class="fa-solid fa-arrow-left"></i> Previous
                   </button>
                   <button type="button" className="btn btn-outline-primary w-40" onClick={this.handleNext}>
-                    Next
+                    Next <i class="fa-solid fa-arrow-right"></i>
                   </button>
                 </div>
               </div>
@@ -270,11 +271,14 @@ export default class App extends Component {
           <div className="modal-dialog modal-lg modal-dialog-centered">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLabel">Modal title</h5>
+                <h5 className="modal-title" id="exampleModalLabel">Edit data</h5>
                 <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div className="modal-body">
                 <div className="container-fluid">
+                  <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                    <i class="fa-brands fa-searchengin"></i> Search Internet
+                  </button>
                   <div className="row">
                     <div className="col-6 col-md-6">
                       <label htmlFor="recipient-name" className="col-form-label">Question:{" "}
@@ -304,6 +308,26 @@ export default class App extends Component {
                         }}></textarea>
                     </div>
                   </div>
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" className="btn btn-primary" onClick={this.saveChanges} data-bs-dismiss="modal">Save changes & close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="modal fade" id="exampleModal1" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog modal-lg modal-dialog-centered">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">Search Internet</h5>
+                <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div className="modal-body">
+                <div className="container-fluid">
+                 COMMING SOON...
                 </div>
               </div>
               <div className="modal-footer">

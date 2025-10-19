@@ -4,11 +4,11 @@ export default function Footer() {
   return (
     <footer className="pt-4 my-md-5 pt-md-5 border-top text-center">
       <p className="text-muted fst-italic mb-2">
-        「継続は力なり」– Persistence is power.
+        Persistence is power.
       </p>
       <div className="mb-2">
         <a
-          href="https://github.com/nhho1412/nihongo-flashcards"
+          href="https://github.com/nhho1412/flashcards-online"
           target="_blank"
           rel="noopener noreferrer"
           className="text-decoration-none text-muted"
@@ -17,7 +17,7 @@ export default function Footer() {
         </a>
       </div>
       <small className="d-block text-muted">
-        © 2025 Nihongo Flashcards
+        © 2025 Flashcards Online
       </small>
     </footer>
   );

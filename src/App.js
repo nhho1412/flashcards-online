@@ -107,7 +107,7 @@ export default class App extends Component {
     const { flashcards } = this.state;
 
     if (!flashcards || flashcards.length === 0) {
-      alert("Không có dữ liệu để xuất!");
+      alert("No data to export!");
       return;
     }
 
@@ -142,7 +142,7 @@ export default class App extends Component {
 
     // Kiểm tra định dạng file
     if (!file.name.endsWith(".csv")) {
-      alert("Vui lòng chọn file CSV hợp lệ!");
+      alert("Please select a valid CSV file!");
       return;
     }
 
@@ -175,11 +175,11 @@ export default class App extends Component {
       // Lưu vào state
       this.setState({ flashcards });
 
-      alert("Đã import thành công!");
+      alert("Import successful!");
     };
 
     reader.onerror = () => {
-      alert("Đọc file thất bại. Vui lòng thử lại!");
+      alert("Failed to read the file. Please try again!");
     };
   };
 
@@ -187,7 +187,7 @@ export default class App extends Component {
     const { flashcards } = this.state;
 
     if (!flashcards || flashcards.length === 0) {
-      alert("Không có dữ liệu để đảo ngược!");
+      alert("No data to reverse!");
       return;
     }
 
@@ -223,10 +223,10 @@ export default class App extends Component {
               Reverse
             </button>
             <button type="button" className="btn btn-primary ms-2" onClick={this.handleExportCSV}>
-              Export data
+              Export csv
             </button>
             <button type="button" className="btn btn-primary ms-2" onClick={() => this.fileInput.click()}>
-              Import data
+              Import csv
             </button>
             <input
               type="file"

@@ -47,13 +47,13 @@
 /* Áp dụng cho textarea trong modal-body */
 .modal-body textarea {
   width: 100%;
-  min-height: 500px; /* để không quá nhỏ */
+  min-height: 500px !important; /* để không quá nhỏ */
 }
 
 /* Màn hình nhỏ (điện thoại) */
 @media (max-width: 768px) {
   .modal-body textarea {
-    min-height: 400px; /* để không quá nhỏ */
+    min-height: 400px !important; /* để không quá nhỏ */
   }
 }
 

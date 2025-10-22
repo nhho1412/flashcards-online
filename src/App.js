@@ -443,14 +443,14 @@ export default class App extends Component {
                                     <Button
                                       size="sm"
                                       variant="outline-primary"
-                                      onClick={() => this.addFlashcard(item.word, item.reading)}
+                                      onClick={(e) => {this.addFlashcard(item.word, item.reading); e.currentTarget.disabled = true;}}
                                     >
                                       + Flashcard Kanji
                                     </Button>
                                     <Button
                                       size="sm"
                                       variant="outline-success"
-                                      onClick={() => this.addFlashcard(item.reading, item.meaningVi)}
+                                      onClick={(e) => {this.addFlashcard(item.reading, item.meaningVi); e.currentTarget.disabled = true;}}
                                     >
                                       + Flashcard furigana
                                     </Button>

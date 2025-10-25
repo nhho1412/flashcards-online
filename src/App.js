@@ -77,17 +77,15 @@ export default class App extends Component {
 
   openModal = () => {
     const { flashcards } = this.state;
-    const questionText = flashcards.map(fc => fc.question).join("\n");
-    const answerText = flashcards.map(fc => fc.answer).join("\n");
+    const questionText = flashcards.map(fc => fc.question).join("\n・");
+    const answerText = flashcards.map(fc => fc.answer).join("\n・");
 
     // Gán vào textarea thông qua ref
-    this.questionRef.current.value = questionText;
-    this.answerRef.current.value = answerText;
+    this.questionRef.current.value = "・" + questionText;
+    this.answerRef.current.value = "・" + answerText;
 
-    const questions = this.state.flashcards.map(fc => fc.question).join('\n');
-    const answers = this.state.flashcards.map(fc => fc.answer).join('\n');
-    const questionCount = questions.split('\n').filter(line => line.trim() !== '').length;
-    const answerCount = answers.split('\n').filter(line => line.trim() !== '').length;
+    const questionCount = questionText.split('\n・').filter(line => line.trim() !== '').length;
+    const answerCount = answerText.split('\n・').filter(line => line.trim() !== '').length;
 
     // Cập nhật state để hiển thị
     this.setState({
@@ -97,8 +95,8 @@ export default class App extends Component {
   };
 
   saveChanges = () => {
-    const questions = this.questionRef.current.value.split("\n");
-    const answers = this.answerRef.current.value.split("\n");
+    const questions = this.questionRef.current.value.substring(1).split("\n・");
+    const answers = this.answerRef.current.value.substring(1).split("\n・");
 
     const flashcards = questions.map((q, i) => ({
       question: q.trim(),

@@ -133,12 +133,29 @@ export default class App extends Component {
     // Tạo link ẩn để tải file
     const link = document.createElement("a");
     link.href = url;
-    link.setAttribute("download", "flashcards_utf8.csv");
+    link.setAttribute("download", "flashcards_" + this.getCurrentDateTimeFormatted() + ".csv");
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
+  getCurrentDateTimeFormatted = () => {
+    const now = new Date();
+
+    // Lấy các thành phần của ngày giờ
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Tháng bắt đầu từ 0
+    const day = now.getDate().toString().padStart(2, '0');
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    const seconds = now.getSeconds().toString().padStart(2, '0');
+
+    // Kết hợp thành chuỗi định dạng yyyyMMddhhMMss
+    const formattedDateTime = `${year}${month}${day}${hours}${minutes}${seconds}`;
+
+    return formattedDateTime;
+  }
+  
   handleImportCSV = (event) => {
     const file = event.target.files[0];
     if (!file) return;

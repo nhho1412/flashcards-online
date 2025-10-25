@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./assets/pricing.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
-import { Tabs, Tab, Form, Button } from "react-bootstrap";
+import { Tabs, Tab, Form, Button, Row, Col } from "react-bootstrap";
 import './App.css';
 
 export default class App extends Component {
@@ -407,20 +407,27 @@ export default class App extends Component {
                       >
                         <Form.Group className="mb-3" controlId="keywordInput">
                           <Form.Label>Enter Japanese word (Kanji / Hiragana / Romaji)</Form.Label>
-                          <Form.Control
-                            type="text"
-                            placeholder="e.g. 花 or はな or hana"
-                            value={this.state.keyword}
-                            onChange={(e) => this.setState({ keyword: e.target.value })}
-                          />
+                          <Row>
+                            <Col xs={8} sm={9}>
+                              <Form.Control
+                                type="text"
+                                placeholder="e.g. 花 or はな or hana"
+                                value={this.state.keyword}
+                                onChange={(e) => this.setState({ keyword: e.target.value })}
+                              />
+                            </Col>
+                            <Col xs={4} sm={3}>
+                              <Button
+                                variant="primary"
+                                onClick={this.searchJapaneseWordJisho}
+                                disabled={this.state.loading}
+                                className="w-100"
+                              >
+                                {this.state.loading ? "Searching..." : "Search"}
+                              </Button>
+                            </Col>
+                          </Row>
                         </Form.Group>
-                        <Button
-                          variant="primary"
-                          onClick={this.searchJapaneseWordJisho}
-                          disabled={this.state.loading}
-                        >
-                          {this.state.loading ? "Searching..." : "Search"}
-                        </Button>
                       </Form>
 
                       <div className="mt-3">

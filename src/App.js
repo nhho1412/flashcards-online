@@ -17,12 +17,19 @@ export default class App extends Component {
       keyword: "",
       results: [],
       loading: false,
-      error: null
+      error: null,
+
+      // NEW: modal controlled text
+      modalQuestionText: "",
+      modalAnswerText: "",
+      questionCount: 0,
+      answerCount: 0,
     };
 
     this.questionRef = React.createRef();
     this.answerRef = React.createRef();
   }
+
   addFlashcard = (question, answer) => {
     this.setState(prevState => ({
       flashcards: [
@@ -42,21 +49,19 @@ export default class App extends Component {
   };
   
   handleNext = () => {
-    // Chuyển sang thẻ kế tiếp
     this.setState(prevState => {
       const nextIndex =
         prevState.currentIndex + 1 < prevState.flashcards.length
           ? prevState.currentIndex + 1
-          : 0; // quay lại đầu nếu hết mảng
+          : 0;
       return {
         currentIndex: nextIndex,
-        showAnswer: false // reset lại để chỉ hiện câu hỏi
+        showAnswer: false
       };
     });
   };
 
   handlePrevios = () => {
-    // Chuyển sang thẻ trước đó
     this.setState(prevState => {
       const previosIndex =
         prevState.currentIndex - 1 >= 0
@@ -64,7 +69,7 @@ export default class App extends Component {
           : prevState.flashcards.length - 1;
       return {
         currentIndex: previosIndex,
-        showAnswer: false // reset lại để chỉ hiện câu hỏi
+        showAnswer: false
       };
     });
   };
@@ -75,35 +80,67 @@ export default class App extends Component {
     }));
   };
 
+  // Helper: ensure each non-empty line starts with '・'
+  ensureLeadingDot = (text) => {
+    if (text === null || text === undefined) return "";
+    return text
+      .split("\n")
+      .map(line => {
+        if (line.trim() === "") return "";
+        if (line.trimStart().startsWith("・")) return line;
+        return "・" + line;
+      })
+      .join("\n");
+  };
+
+  // Helper: parse modal text into array of lines (remove leading '・' if present)
+  parseModalLines = (text) => {
+    if (!text) return [];
+    // remove starting '・' if present to make split consistent
+    const normalized = text.startsWith("・") ? text.substring(1) : text;
+    return normalized
+      .split("\n・")
+      .map(s => s.trim())
+      .filter(s => s !== "");
+  };
+
   openModal = () => {
     const { flashcards } = this.state;
-    const questionText = flashcards.map(fc => fc.question).join("\n・");
-    const answerText = flashcards.map(fc => fc.answer).join("\n・");
+    // join all questions/answers with "・" and ensure leading dot
+    const questionText = flashcards.map(fc => fc.question || "").join("\n");
+    const answerText = flashcards.map(fc => fc.answer || "").join("\n");
 
-    // Gán vào textarea thông qua ref
-    this.questionRef.current.value = "・" + questionText;
-    this.answerRef.current.value = "・" + answerText;
+    const modalQuestionText = this.ensureLeadingDot(questionText);
+    const modalAnswerText = this.ensureLeadingDot(answerText);
 
-    const questionCount = questionText.split('\n・').filter(line => line.trim() !== '').length;
-    const answerCount = answerText.split('\n・').filter(line => line.trim() !== '').length;
+    const questionCount = this.parseModalLines(modalQuestionText).length;
+    const answerCount = this.parseModalLines(modalAnswerText).length;
 
-    // Cập nhật state để hiển thị
+    // Set modal controlled text (don't touch refs directly)
     this.setState({
+      modalQuestionText,
+      modalAnswerText,
       questionCount,
       answerCount
     });
   };
 
   saveChanges = () => {
-    const questions = this.questionRef.current.value.substring(1).split("\n・");
-    const answers = this.answerRef.current.value.substring(1).split("\n・");
+    const { modalQuestionText, modalAnswerText } = this.state;
 
-    const flashcards = questions.map((q, i) => ({
-      question: q.trim(),
-      answer: answers[i] ? answers[i].trim() : "",
-    }));
+    const questions = this.parseModalLines(modalQuestionText);
+    const answers = this.parseModalLines(modalAnswerText);
 
-    this.setState({ flashcards });
+    const maxLen = Math.max(questions.length, answers.length);
+    const flashcards = [];
+    for (let i = 0; i < maxLen; i++) {
+      flashcards.push({
+        question: questions[i] || "",
+        answer: answers[i] || ""
+      });
+    }
+
+    this.setState({ flashcards, currentIndex: 0 });
   };
 
   handleExportCSV = () => {
@@ -114,23 +151,17 @@ export default class App extends Component {
       return;
     }
 
-    // Dòng tiêu đề (header)
     const header = ["Question", "Answer"];
     const rows = flashcards.map(card => [card.question, card.answer]);
 
-    // Tạo nội dung CSV — escape ký tự đặc biệt và nối thành chuỗi
     const csvContent = [header, ...rows]
       .map(e => e.map(value => `"${(value || '').replace(/"/g, '""')}"`).join(","))
       .join("\n");
 
-    // Thêm BOM (Byte Order Mark) để Excel hiểu đúng UTF-8
     const BOM = "\uFEFF";
     const blob = new Blob([BOM + csvContent], { type: "text/csv;charset=utf-8;" });
 
-    // Tạo URL tải xuống
     const url = URL.createObjectURL(blob);
-
-    // Tạo link ẩn để tải file
     const link = document.createElement("a");
     link.href = url;
     link.setAttribute("download", "flashcards_" + this.getCurrentDateTimeFormatted() + ".csv");
@@ -141,18 +172,13 @@ export default class App extends Component {
 
   getCurrentDateTimeFormatted = () => {
     const now = new Date();
-
-    // Lấy các thành phần của ngày giờ
     const year = now.getFullYear();
-    const month = (now.getMonth() + 1).toString().padStart(2, '0'); // Tháng bắt đầu từ 0
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
     const day = now.getDate().toString().padStart(2, '0');
     const hours = now.getHours().toString().padStart(2, '0');
     const minutes = now.getMinutes().toString().padStart(2, '0');
     const seconds = now.getSeconds().toString().padStart(2, '0');
-
-    // Kết hợp thành chuỗi định dạng yyyyMMddhhMMss
     const formattedDateTime = `${year}${month}${day}${hours}${minutes}${seconds}`;
-
     return formattedDateTime;
   }
   
@@ -160,41 +186,26 @@ export default class App extends Component {
     const file = event.target.files[0];
     if (!file) return;
 
-    // Kiểm tra định dạng file
     if (!file.name.endsWith(".csv")) {
       alert("Please select a valid CSV file!");
       return;
     }
 
     const reader = new FileReader();
-
-    // Đọc file với encoding UTF-8
     reader.readAsText(file, "UTF-8");
 
     reader.onload = (e) => {
       const text = e.target.result;
-
-      // Cắt bỏ BOM (nếu có)
       const csvText = text.replace(/^\uFEFF/, "");
-
-      // Tách dòng
       const lines = csvText.trim().split(/\r?\n/);
-
-      // Dòng đầu tiên là header
       const [, ...dataLines] = lines;
-
-      // Parse từng dòng thành object { question, answer }
       const flashcards = dataLines.map(line => {
-        // Tách theo dấu phẩy, xử lý trường hợp có dấu phẩy trong chuỗi
         const [questionRaw, answerRaw] = line.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
         const question = questionRaw.replace(/^"|"$/g, '').replace(/""/g, '"');
         const answer = answerRaw?.replace(/^"|"$/g, '').replace(/""/g, '"');
         return { question, answer };
       });
-
-      // Lưu vào state
       this.setState({ flashcards });
-
       alert("Import successful!");
     };
 
@@ -211,7 +222,6 @@ export default class App extends Component {
       return;
     }
 
-    // Tạo mảng mới với question ↔ answer
     const reversed = flashcards.map(card => ({
       question: card.answer || "",
       answer: card.question || "",
@@ -253,7 +263,6 @@ export default class App extends Component {
       if (!data || !data.data || data.data.length === 0) {
         this.setState({ results: [], error: "Không tìm thấy kết quả." });
       } else {
-        // Tạo mảng promise cho từng item
         const promises = data.data.map(async (item) => {
           const jp = item.japanese[0];
           const word = jp.word || jp.reading;
@@ -268,7 +277,6 @@ export default class App extends Component {
           return { word, reading, meaningVi, pos };
         });
 
-        // ✅ Chờ tất cả promise hoàn tất
         const formatted = await Promise.all(promises);
 
         this.setState({ results: formatted });
@@ -287,11 +295,10 @@ export default class App extends Component {
 
     return (
       <div>
-        <Header
-        />
+        <Header />
         <div className="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center caption-japanese">
           <h1 className="display-4">Small Cards, Big Progress</h1>
-          <br></br>
+          <br />
           <p className="lead"></p>
           <div className="d-flex flex-wrap justify-content-center gap-2">
             <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editDataModal" onClick={this.openModal}>
@@ -317,10 +324,10 @@ export default class App extends Component {
               style={{ display: "none" }}
             />
           </div>
-          <br></br>
+          <br />
         </div>
 
-        <br></br>
+        <br />
 
         <div className="container">
           <div className="card-deck mb-3 text-center">
@@ -371,13 +378,18 @@ export default class App extends Component {
                           ({this.state.questionCount || 0})
                         </span>
                       </label>
-                      <textarea className="form-control" aria-label="With textarea" 
+                      <textarea
+                        className="form-control"
+                        aria-label="With textarea"
                         ref={this.questionRef}
-                        onInput={(e) => {
-                          const count = e.target.value.split("\n").filter(line => line.trim() !== "").length;
-                          this.setState({ questionCount: count });
+                        value={this.state.modalQuestionText}
+                        onChange={(e) => {
+                          // update modalQuestionText with leading "・"
+                          const newVal = this.ensureLeadingDot(e.target.value);
+                          const count = this.parseModalLines(newVal).length;
+                          this.setState({ modalQuestionText: newVal, questionCount: count });
                         }}
-                      ></textarea>
+                      />
                     </div>
                     <div className="col-6 col-md-6">
                       <label htmlFor="recipient-name" className="col-form-label">Answer:{" "}
@@ -385,12 +397,17 @@ export default class App extends Component {
                           ({this.state.answerCount || 0})
                         </span>
                       </label>
-                      <textarea className="form-control" aria-label="With textarea"
+                      <textarea
+                        className="form-control"
+                        aria-label="With textarea"
                         ref={this.answerRef}
-                        onInput={(e) => {
-                          const count = e.target.value.split("\n").filter(line => line.trim() !== "").length;
-                          this.setState({ answerCount: count });
-                        }}></textarea>
+                        value={this.state.modalAnswerText}
+                        onChange={(e) => {
+                          const newVal = this.ensureLeadingDot(e.target.value);
+                          const count = this.parseModalLines(newVal).length;
+                          this.setState({ modalAnswerText: newVal, answerCount: count });
+                        }}
+                      />
                     </div>
                   </div>
                 </div>

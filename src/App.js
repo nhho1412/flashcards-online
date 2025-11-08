@@ -29,6 +29,43 @@ export default class App extends Component {
     this.questionRef = React.createRef();
     this.answerRef = React.createRef();
   }
+  componentDidMount() {
+    // add global keydown listener
+    window.addEventListener('keydown', this.handleKeyDown);
+  }
+
+  componentWillUnmount() {
+    // clean up
+    window.removeEventListener('keydown', this.handleKeyDown);
+  }
+
+  // keyboard handler: Left -> previous, Right -> next, Space -> flip
+  handleKeyDown = (e) => {
+    // Ignore when user is typing in input/textarea/contenteditable
+    const active = document.activeElement;
+    const tag = active && active.tagName ? active.tagName.toUpperCase() : null;
+    const isTyping = tag === 'INPUT' || tag === 'TEXTAREA' || active?.isContentEditable;
+
+    // Ignore if any modal is open (bootstrap modal has class 'modal show')
+    const modalOpen = !!document.querySelector('.modal.show');
+
+    if (isTyping || modalOpen) {
+      return;
+    }
+
+    // handle keys
+    if (e.code === 'ArrowLeft' || e.key === 'ArrowLeft') {
+      e.preventDefault();
+      this.handlePrevios();
+    } else if (e.code === 'ArrowRight' || e.key === 'ArrowRight') {
+      e.preventDefault();
+      this.handleNext();
+    } else if (e.code === 'Space' || e.key === ' ') {
+      // prevent page scroll when flipping
+      e.preventDefault();
+      this.handleClick();
+    }
+  }
 
   addFlashcard = (question, answer) => {
     this.setState(prevState => ({

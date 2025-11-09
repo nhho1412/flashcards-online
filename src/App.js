@@ -64,6 +64,13 @@ export default class App extends Component {
       // prevent page scroll when flipping
       e.preventDefault();
       this.handleClick();
+    } else if (e.code === 'Digit0' || e.key === '0') {
+      e.preventDefault();
+      // 🔹 Khi nhấn phím số 0 → quay về flashcard đầu tiên
+      this.setState({
+        currentIndex: 0,
+        showAnswer: false
+      });
     }
   }
 

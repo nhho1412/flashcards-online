@@ -3,6 +3,8 @@
 A **ReactJS-based Flashcard Application** designed to help you memorize vocabulary efficiently through interactive virtual cards.  
 You can **create, edit, shuffle, flip, import/export CSV data**, and even **search Japanese words** directly from the **Jisho API**.
 
+🔗 **Live Demo:** [https://nhho1412.github.io/flashcards-online/](https://nhho1412.github.io/flashcards-online/)
+
 ---
 
 ### 🚀 Key Features

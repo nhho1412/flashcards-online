@@ -1,68 +1,109 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🧠 Flashcard App – Learn Smarter, Remember Longer
 
-## Available Scripts
+A **ReactJS-based Flashcard Application** designed to help you memorize vocabulary efficiently through interactive virtual cards.  
+You can **create, edit, shuffle, flip, import/export CSV data**, and even **search Japanese words** directly from the **Jisho API**.
+
+🔗 **Live Demo:** [https://nhho1412.github.io/flashcards-online/](https://nhho1412.github.io/flashcards-online/)
+
+---
+
+### 🚀 Key Features
+
+- 🃏 **Flashcard learning:** Flip cards to reveal answers or readings.  
+- ⌨️ **Keyboard shortcuts:**
+  - ⬅️ **Left Arrow:** Previous card  
+  - ➡️ **Right Arrow:** Next card  
+  - 🔁 **Space:** Flip the card  
+  - 🔢 **0 (zero):** Jump back to the first card  
+- ✏️ **Edit data** directly in a modal window.  
+- 🎲 **Shuffle** all flashcards randomly.  
+- 🔃 **Reverse** front/back sides (question ↔ answer).  
+- 📤 **Export CSV**: Save your deck to a `.csv` file.  
+- 📥 **Import CSV**: Load existing flashcards from a `.csv` file.  
+- 🌐 **Japanese dictionary search** via **Jisho.org API**, with automatic Vietnamese translation.  
+- 💾 **Auto-prefix “・”** to every non-empty line for cleaner data formatting.
+
+---
+
+### 🧩 Built With
+
+- **ReactJS** (Create React App)  
+- **Bootstrap 5** for UI  
+- **Fetch API** for external requests  
+- **MyMemory Translate API** (English → Vietnamese)
+
+---
+
+### 🖥️ Run Locally
 
 In the project directory, you can run:
 
-### `yarn start`
+```bash
+yarn start
+```
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in development mode.  
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The page will automatically reload when you edit the code.  
+You will also see lint errors in the console.
 
-### `yarn test`
+---
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🧪 Run Tests
 
-### `yarn build`
+```bash
+yarn test
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Launches the test runner in interactive watch mode.  
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more details.
 
-The build is minified and the filenames include the hashes.<br />
+---
+
+### 🏗️ Build for Production
+
+```bash
+yarn build
+```
+
+Builds the app for production to the `build` folder.  
+It bundles React in production mode and optimizes the build for the best performance.  
+The output is minified and filenames include hashes.
+
 Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `yarn eject`
+### ⚙️ Eject (Optional)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+yarn eject
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+> ⚠️ **Warning:** This is a one-way operation. Once you eject, you can’t go back!
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+This command gives you full control over the configuration (Webpack, Babel, ESLint, etc.) by copying them into your project.  
+All other commands will still work, but now reference your local config files.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+### 📚 Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Create React App Documentation](https://facebook.github.io/create-react-app/docs/getting-started)  
+- [React Official Documentation](https://reactjs.org/docs/getting-started.html)  
+- [Jisho.org API](https://jisho.org/api/v1/search/words?keyword=example)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+### 💡 Future Improvements
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- Add **auto-flip learning mode**.  
+- Store flashcards in **LocalStorage** or **IndexedDB**.  
+- Tag cards by **topic or category** (e.g., grammar, kanji, vocabulary).  
+- Enable **cloud sync** for data backup.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+**Flashcard App** – *“Small Cards, Big Progress.”* 🌱  
+Learn every day. Remember for life.

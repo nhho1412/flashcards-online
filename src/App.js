@@ -387,7 +387,7 @@ export default class App extends Component {
                 </div>
               </div>
               <div className="card-body d-flex justify-content-center align-items-center minHeight-400" 
-                style={{ cursor: 'pointer', userSelect: 'none', backgroundColor: this.state.showAnswer ? ' #e7f1f5' : '#fff',}}
+                style={{ cursor: 'pointer', userSelect: 'none', backgroundColor: this.state.showAnswer ? ' #e7f1f5' : currentIndex === 0 && flashcards.length !== 1 ? '#e5f8e1ff' : '#fff',}}
                 onClick={this.handleClick}>
                 <h1 className="card-title pricing-card-title vocaText">
                   {showAnswer ? currentCard.answer : currentCard.question}
